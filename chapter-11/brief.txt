@@ -22,4 +22,5 @@ The output of problem-3/code_version_2.c with fsync
   251 microseconds used to close file.
 
 
-4.
+4. The data may not be saved to disk since the write() system call does not guarantee that data been
+committed to disk. A fsync() is required to ensure the data is saved. 

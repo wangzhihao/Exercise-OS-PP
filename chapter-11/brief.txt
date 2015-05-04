@@ -10,11 +10,16 @@ http://stackoverflow.com/questions/19441823/a-file-opened-for-read-and-write-can
 The file is unlinked without raising any errors.
 
 
-3. The output of problem-3/code.c
+3. The output of problem-3/code_version_1.c
 
   32 microseconds used to open file.
   397 microseconds used to write 100KB data.
   21 microseconds used to close file.
+
+The output of problem-3/code_version_2.c
+  38 microseconds used to open file.
+  2912 microseconds used to write 100KB data in one trip with fsync.
+  251 microseconds used to close file.
 
 
 4.

@@ -9,4 +9,12 @@ http://stackoverflow.com/questions/19441823/a-file-opened-for-read-and-write-can
 2. see problem-2/code.c
 The file is unlinked without raising any errors.
 
-3.
+
+3. The output of problem-3/code.c
+
+  32 microseconds used to open file.
+  397 microseconds used to write 100KB data.
+  21 microseconds used to close file.
+
+
+4.

@@ -1,10 +1,12 @@
-1. The unlink will success, and the process who opens the file will still be able to access / modify the file. I.E. the file is not deleted when it is unlinked. The unlink operation only unbind the *name / path* from the file. The file is removed by garbage collector when no *reference* points to the file.
-
-The *reference* is different from the *name / path*. See more in http://stackoverflow.com/questions/19441823/a-file-opened-for-read-and-write-can-be-unlinked
+1. The unlink will success, and the process who opens the file will still be able to access / modify
+the file. I.E. the file is not deleted when it is unlinked. The unlink operation only unbind the
+*name / path* from the file. The file is removed by garbage collector when no *reference* points to
+the file.
+The *reference* is different from the *name / path*. See more in
+http://stackoverflow.com/questions/19441823/a-file-opened-for-read-and-write-can-be-unlinked
 
 
 2. see problem-2/code.c
 The file is unlinked without raising any errors.
-
 
 3.

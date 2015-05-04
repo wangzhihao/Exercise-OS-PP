@@ -3,13 +3,14 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define ONE_KB 1024
 
 int main() {
-    int fd = open("testfile", O_WRONLY);
+    int fd = open("testfile", O_WRONLY | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO );
     if(fd == -1) {
-        perror("fail to open the file.");
+        perror("fail to create the file.");
         exit(EXIT_FAILURE);
     }
     char buf[ONE_KB]; //1KB

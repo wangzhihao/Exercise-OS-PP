@@ -1,0 +1,51 @@
+1. We want to organize the data and make it sequentially read/write. So one head is good for
+sequential working, but mutiple heads will be bad.
+
+online answer: http://www.pcguide.com/ref/hdd/op/actMultiple-c.html
+The patent of mulitple disk arm assemblies:  http://www.google.com/patents/US605799
+
+
+
+2. Spindle speed 7200 RPM , thus 1 rotation cost 60 / 7200 * 1000 ms = 8.33 ms
+   The Transfer rate (from surface to buffer) is 54 ~ 128 MB/s, and thus 1 rotation
+   54 * 8.33 / 1000 ~ 128 * 8.33 / 1000  MB/s data is transfered, which is 0.44982 ~ 1.06624 MB.
+   Suppose a sector is 512 bytes, then there are 921 ~ 2184 sectors.  
+
+online report by 2015 modern hdd have 63 sectors per track.  see here http://superuser.com/a/107733
+and the sector size is 4KB. see  http://en.wikipedia.org/wiki/Disk_sector
+
+For physical disk geometries the maximal sector number is determined by the low level format of the
+disk. However, for disk access with the BIOS of IBM-PC compatible machines, the sector number was
+encoded in six bits, resulting in a maximal number of 63=64-1 sectors per track, where 64=26
+corresponds to six bits. The maximum 63 is still in use for virtual CHS geometries.
+ -- from http://en.wikipedia.org/wiki/Cylinder-head-sector#Cylinders
+
+So 63 is a virtual number.
+
+
+3. Suppose the diameter of spindle is 1cm, and as we know the diameter of disk is 6.3cm.
+  So the distance of all tracks is Sum = ( 6.3 - 1 ) / 2 = 2.65cm;
+
+  suppose the data on each track increases linearly from inner track to outer track. then the
+average data capacity = (0.44982 + 1.06624) / 2 = 0.75803 MB;
+  
+  there are 2 platters and each platter has two surfaces, so every side can store 80GB data.
+  Then there are 80GB / 0.75803 MB tracks in total, which is approximately 108070;
+
+  Then the distance between two adjacent tracks is 2.65cm / 108070 = 245nm;
+
+online report matches the estimation: 
+
+ A typical magnetic region on a hard-disk platter (as of 2006) is about 200–250 nanometers wide (in
+the radial direction of the platter) and extends about 25–30 nanometers in the down-track direction
+(the circumferential direction on the platter), corresponding to about 100 billion bits per square
+inch of disk area (15.5 Gbit/cm2).
+-- from http://en.wikipedia.org/wiki/Hard_disk_drive_platter
+
+
+4. We have only one disk arm assembly. So all heads are relatively static and depedent.
+
+
+
+
+
